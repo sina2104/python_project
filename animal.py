@@ -2,6 +2,9 @@ from pet import Pet
 
 
 class Animal(Pet):
+    """
+    тут мы определяем вид животного
+    """
     def __init__(self):
         super().__init__()
 
