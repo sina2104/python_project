@@ -2,6 +2,18 @@ from random import randrange
 
 
 class Pet:
+     """
+    boredom_decrement - насколько уменьшаем скучность
+    hunger_decrement - насколько умеьшаем голод
+    boredom_threshold - порог скучности
+    hunger_threshold - порог голода
+    sounds - звуки
+    diet - рацион
+    look - портрет
+    name - имя
+    hunger - счётчик голодности
+    boredom -счётчик скучности
+    """:
     boredom_decrement = 3
     hunger_decrement = 5
     boredom_threshold = 20
