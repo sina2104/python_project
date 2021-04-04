@@ -3,6 +3,10 @@ from pet import Pet
 from animal import Animal
 
 class Play(Animal):
+    """
+    здесь написана сама игра
+    play1 - животное, с которым мы работаем
+    """
     from time import time, sleep
 
     def __init__(self):
