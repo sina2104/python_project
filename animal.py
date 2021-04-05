@@ -8,7 +8,7 @@ class Animal(Pet):
     def __init__(self):
         super().__init__()
 
-    class cat:
+    class Cat:
         pet = Pet()
         pet.diet = ['chicken', 'turkey', 'apple']
         pet.name = 'kitty'
@@ -16,7 +16,7 @@ class Animal(Pet):
         pet.sounds.append('Mrrrr')
         print("I'm a " + pet.name, '\n' + pet.look)
 
-    class dog:
+    class Dog:
         pet = Pet()
         pet.diet = ['beef', 'bone', 'carrot']
         pet.name = 'big dog'
