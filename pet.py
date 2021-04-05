@@ -13,7 +13,7 @@ class Pet:
     name - имя
     hunger - счётчик голодности
     boredom -счётчик скучности
-    """:
+    """
     boredom_decrement = 3
     hunger_decrement = 5
     boredom_threshold = 20
