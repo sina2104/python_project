@@ -11,7 +11,6 @@ class Play(Animal):
 
     def __init__(self):
         super().__init__()
-    play1 = Animal.Cat
     print("choose your animal \
                 1-cat \
                 2-dog")
@@ -20,12 +19,12 @@ class Play(Animal):
             pet = int(input())
             types = {1: Animal.Cat, 2: Animal.Dog}
             play1 = types[pet]
+            play1()
             break
         except KeyError:
             print("choose again:")
         except ValueError:
             print("choose again:")
-    play1()
     start = time()
     while 1:
         play1.pet.clock_tick()
