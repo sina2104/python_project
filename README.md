@@ -3,7 +3,7 @@
 ---
 ### Инструкция по запуску игры:
 ##### git clone https://github.com/sina2104/python_project.git 
-##### cd python_project python3
+##### cd python_project
 ##### python3 tamagotchi.py
 ***
 ---
