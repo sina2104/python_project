@@ -1,13 +1,9 @@
 from random import randrange
-from pet import Pet
 from animal import Animal
 
+
 class Play(Animal):
-    """
-    здесь написана сама игра
-    play1 - животное, с которым мы работаем
-    """
-    from time import time, sleep
+    from time import sleep
 
     def __init__(self):
         super().__init__()
@@ -25,11 +21,14 @@ class Play(Animal):
             print("choose again:")
         except ValueError:
             print("choose again:")
-    start = time()
     while 1:
         play1.pet.clock_tick()
         print(play1.pet, '\n' + play1.pet.sounds[0])
         sleep(3)
+        if play1.pet.mood() == 'dead':
+            print('You had to care about me...')
+            print(play1.pet.dead_look)
+            break
         if play1.pet.mood() == 'hungry':
             food = input()
             if food in play1.pet.diet:
@@ -38,10 +37,6 @@ class Play(Animal):
             entertain = input()
             play1.pet.teach(entertain)
             print(play1.pet.sounds[randrange(1, len(play1.pet.sounds))])
-        if time() - start > 180:
-            print(play1.pet.look)
-            print("It's time to die! Goodbye!")
-            break
 
 
 tamagotchi = Play()
