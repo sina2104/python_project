@@ -2,6 +2,8 @@ from random import randrange
 
 from animal import Animal
 
+from time import sleep
+
 
 class Play(Animal):
     """
@@ -9,7 +11,6 @@ class Play(Animal):
         types - виды животных
         our_animal - наше животное
     """
-    from time import sleep
 
     def __init__(self):
         super().__init__()
