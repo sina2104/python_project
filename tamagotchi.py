@@ -5,6 +5,8 @@ from animal import Animal
 
 class Play(Animal):
     """
+        pet - выбранное животное
+        types - виды животных
         our_animal - наше животное
     """
     from time import sleep
