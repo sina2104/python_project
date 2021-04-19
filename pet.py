@@ -9,6 +9,7 @@ class Pet:
         common_boredom - вероятное значение скучности
         boredom_threshold - порог скучности
         hunger_threshold - порог голода
+        death_threshold - порог смерти
         sounds - звуки
         diet - рацион
         look - портрет
@@ -23,7 +24,7 @@ class Pet:
     common_boredom = 15
     boredom_threshold = 20
     hunger_threshold = 20
-    sounds = []
+    death_threshold = 25
 
     def __init__(self):
         self.diet = []
@@ -32,14 +33,14 @@ class Pet:
         self.name = str()
         self.hunger = max(self.common_hunger, randrange(self.hunger_threshold))
         self.boredom = max(self.common_boredom, randrange(self.boredom_threshold))
-        self.sounds = self.sounds[:]
+        self.sounds = []
 
     def clock_tick(self):
         self.boredom += 1
         self.hunger += 1
 
     def mood(self):
-        if self.hunger > 25:
+        if self.hunger > self.death_threshold:
             return "dead"
         if self.hunger <= self.hunger_threshold and self.boredom <= self.boredom_threshold:
             return "happy"
