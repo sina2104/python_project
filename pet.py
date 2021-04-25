@@ -17,6 +17,7 @@ class Pet:
         name - имя
         hunger - счётчик голодности
         boredom -счётчик скучности
+        first_element - первый элемент
     """
     boredom_decrement = 3
     hunger_decrement = 5
@@ -25,12 +26,13 @@ class Pet:
     boredom_threshold = 20
     hunger_threshold = 20
     death_threshold = 25
+    first_element = 0
 
     def __init__(self):
         self.diet = []
-        self.look = str()
-        self.dead_look = str()
-        self.name = str()
+        self.look = ''
+        self.dead_look = ''
+        self.name = ''
         self.hunger = max(self.common_hunger, randrange(self.hunger_threshold))
         self.boredom = max(self.common_boredom, randrange(self.boredom_threshold))
         self.sounds = []
@@ -39,7 +41,7 @@ class Pet:
         self.boredom += 1
         self.hunger += 1
 
-    def mood(self):
+    def get_mood(self):
         if self.hunger > self.death_threshold:
             return "dead"
         if self.hunger <= self.hunger_threshold and self.boredom <= self.boredom_threshold:
@@ -50,7 +52,7 @@ class Pet:
             return "bored"
 
     def __str__(self):
-        state = "I feel " + self.mood() + "."
+        state = "I feel " + self.get_mood() + "."
         return state
 
     def teach(self, word):
@@ -62,7 +64,7 @@ class Pet:
         print("Yummy")
 
     def reduce_hunger(self):
-        self.hunger = max(0, self.hunger - self.hunger_decrement)
+        self.hunger = max(self.first_element, self.hunger - self.hunger_decrement)
 
     def reduce_boredom(self):
-        self.boredom = max(0, self.boredom - self.boredom_decrement)
+        self.boredom = max(self.first_element, self.boredom - self.boredom_decrement)
