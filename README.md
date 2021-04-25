@@ -17,6 +17,6 @@
 ##### Если ему скучно, то вы ему научите новое слово или предложение, и он вам скажет один из слов, которые вы ему научили. Брегите своих животных!
 ##### Если вы не будете кормить своего животного(нажимая на ENTER, или отдавая ему блюдо, которое не входит в его рацион), то он умрёт.
 ### Пример игры
-![открыть](https://photos.google.com/share/AF1QipMOyHqmAPwtCFAhOxixgQEKR6XEOW9wSvqcPp1PNTGVrKIgXRsBsigHzuHdoPaoNA?key=QzhGZjJxVXczSkFlNDZpZGoxUlQwMnFxRXVUY1Bn.jpg)
+![example](https://ibb.co/BPcPhy7)
 
 ***НАСЛАЖДАЙТЕСЬ ИГРОЙ!***
