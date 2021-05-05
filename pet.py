@@ -46,10 +46,12 @@ class Pet:
             return "dead"
         if self.hunger <= self.hunger_threshold and self.boredom <= self.boredom_threshold:
             return "happy"
-        elif self.hunger > self.hunger_threshold:
+        elif self.hunger > self.hunger_threshold and self.boredom <= self.boredom_threshold:
             return "hungry"
-        else:
+        elif self.hunger <= self.hunger_threshold and self.boredom > self.boredom_threshold:
             return "bored"
+        else:
+            return "hungry and board"
 
     def __str__(self):
         state = "I feel " + self.get_mood() + "."
