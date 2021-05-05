@@ -46,6 +46,14 @@ class Play(Cat, Dog):
             entertain = input()
             our_animal.pet.teach(entertain)
             print(our_animal.pet.sounds[randrange(first_element + 1, len(our_animal.pet.sounds))])
+        elif our_animal.pet.get_mood() == 'hungry and board':
+            print('feed me then teach me something')
+            food = input()
+            if food in our_animal.pet.diet:
+                our_animal.pet.feed()
+            entertain = input()
+            our_animal.pet.teach(entertain)
+            print(our_animal.pet.sounds[randrange(first_element + 1, len(our_animal.pet.sounds))])
 
 
 tamagotchi = Play()
