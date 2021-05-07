@@ -5,17 +5,17 @@ from pet import Pet
 
 
 class Cat(Pet):
-    def __init__(self):      
+    def __init__(self):    
         super().__init__()
     pet = Pet()
     pet.diet = ['chicken', 'turkey', 'apple']
     pet.name = 'kitty'
     pet.look = '''
-     /\_/\ 
+     /\_/\
     ( o.o )
      > ^ <'''
     pet.dead_look = '''
-     /\_/\ 
+     /\_/\
     ( *.* )
      > ^ < '''
     pet.sounds.append('Mrrrr')
@@ -23,24 +23,24 @@ class Cat(Pet):
 
 
 class Dog(Pet):
-    def __init__(self):   
+    def __init__(self):
         super().__init__()
     pet = Pet()
     pet.diet = ['beef', 'bone', 'carrot']
     pet.name = 'big dog'
     pet.look = '''
-     /^ ^\ 
-    / 0 0 \ 
-    V\ Y /V 
-     / - \ 
+     /^ ^\
+    / 0 0 \
+    V\ Y /V
+     / - \
     /    |
     V__) ||'''
-    pet.dead_look = '''  
-     /^ ^\  
-    / * * \ 
-    V\ Y /V 
-     / - \ 
-    /    | 
+    pet.dead_look = '''
+     /^ ^\
+    / * * \
+    V\ Y /V
+     / - \
+    /    |
     V__) ||'''
     pet.sounds.append('Haf Haf')
     print(f"I'm a {pet.name}{pet.look}")
