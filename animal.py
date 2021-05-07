@@ -5,16 +5,16 @@ from pet import Pet
 
 
 class Cat(Pet):
-    def __init__(self):    
+    def __init__(self):
         super().__init__()
     pet = Pet()
     pet.diet = ['chicken', 'turkey', 'apple']
     pet.name = 'kitty'
-    pet.look = '''
+    pet.look = r'''
      /\_/\
     ( o.o )
      > ^ <'''
-    pet.dead_look = '''
+    pet.dead_look = r'''
      /\_/\
     ( *.* )
      > ^ < '''
@@ -28,14 +28,14 @@ class Dog(Pet):
     pet = Pet()
     pet.diet = ['beef', 'bone', 'carrot']
     pet.name = 'big dog'
-    pet.look = '''
+    pet.look = r'''
      /^ ^\
     / 0 0 \
     V\ Y /V
      / - \
     /    |
     V__) ||'''
-    pet.dead_look = '''
+    pet.dead_look = r'''
      /^ ^\
     / * * \
     V\ Y /V
