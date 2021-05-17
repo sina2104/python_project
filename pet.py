@@ -18,11 +18,12 @@ class Pet:
         hunger - счётчик голодности
         boredom -счётчик скучности
         first_element - первый элемент
+        first_element - первый элемент
     """
     boredom_decrement = 3
     hunger_decrement = 5
-    common_hunger = 18
-    common_boredom = 15
+    common_hunger = 20
+    common_boredom = 20
     boredom_threshold = 20
     hunger_threshold = 20
     death_threshold = 25
@@ -36,6 +37,10 @@ class Pet:
         self.hunger = max(self.common_hunger, randrange(self.hunger_threshold))
         self.boredom = max(self.common_boredom, randrange(self.boredom_threshold))
         self.sounds = []
+
+    def __str__(self):
+        state = "I feel " + self.get_mood() + "."
+        return state
 
     def clock_tick(self):
         self.boredom += 1
@@ -51,11 +56,29 @@ class Pet:
         elif self.hunger <= self.hunger_threshold and self.boredom > self.boredom_threshold:
             return "bored"
         else:
-            return "hungry and board"
+            return "hungry and bored"
 
-    def __str__(self):
-        state = "I feel " + self.get_mood() + "."
-        return state
+    def dead_mode(self, our_animal):
+        if our_animal.pet.get_mood() == 'dead':
+            print('You had to care about me...')
+            print(our_animal.pet.dead_look)
+            return True
+        return False
+
+    def hungry_mode(self, our_animal):
+        if our_animal.pet.get_mood() == 'hungry' or our_animal.pet.get_mood() == "hungry and bored":
+            print("feed me please:")
+            food = input()
+            if food in our_animal.pet.diet:
+                our_animal.pet.feed()
+
+    def bored_mode(self, our_animal):
+        if our_animal.pet.get_mood() == 'bored' or our_animal.pet.get_mood() == "hungry and bored":
+            print("teach me something please:")
+            first_element = 0
+            entertain = input()
+            our_animal.pet.teach(entertain)
+            print(our_animal.pet.sounds[randrange(first_element + 1, len(our_animal.pet.sounds))])
 
     def teach(self, word):
         self.sounds.append(word)
