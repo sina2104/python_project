@@ -66,14 +66,14 @@ class Pet:
         return False
 
     def hungry_mode(self, our_animal):
-        if our_animal.pet.get_mood() == 'hungry' or our_animal.pet.get_mood() == "hungry and bored":
+        if our_animal.pet.get_mood() in ['hungry', 'hungry and bored']:
             print("feed me please:")
             food = input()
             if food in our_animal.pet.diet:
                 our_animal.pet.feed()
 
     def bored_mode(self, our_animal):
-        if our_animal.pet.get_mood() == 'bored' or our_animal.pet.get_mood() == "hungry and bored":
+        if our_animal.pet.get_mood() in ['bored', 'hungry and bored']:
             print("teach me something please:")
             first_element = 0
             entertain = input()
