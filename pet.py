@@ -18,12 +18,12 @@ class Pet:
         hunger - счётчик голодности
         boredom -счётчик скучности
         first_element - первый элемент
-        first_element - первый элемент
+        number - номер состояния
     """
     boredom_decrement = 3
     hunger_decrement = 5
-    common_hunger = 20
-    common_boredom = 20
+    common_hunger = 21
+    common_boredom = 21
     boredom_threshold = 20
     hunger_threshold = 20
     death_threshold = 25
@@ -39,41 +39,44 @@ class Pet:
         self.sounds = []
 
     def __str__(self):
-        state = "I feel " + self.get_mood() + "."
+        state = f"I feel {self.get_mood(1)[0]}."
         return state
 
     def clock_tick(self):
         self.boredom += 1
         self.hunger += 1
 
-    def get_mood(self):
-        if self.hunger > self.death_threshold:
+    def get_mood(self, number):
+        if self.hunger > self.death_threshold and number == 0:
             return "dead"
-        if self.hunger <= self.hunger_threshold and self.boredom <= self.boredom_threshold:
+        if self.hunger <= self.hunger_threshold and self.boredom <= self.boredom_threshold and number == 1:
             return "happy"
-        elif self.hunger > self.hunger_threshold and self.boredom <= self.boredom_threshold:
+        if self.hunger > self.hunger_threshold and number == 2:
             return "hungry"
-        elif self.hunger <= self.hunger_threshold and self.boredom > self.boredom_threshold:
+        if self.boredom > self.boredom_threshold and number == 3:
             return "bored"
         else:
-            return "hungry and bored"
+            return "none"
+
+    def happy_mode(self, our_animal):
+        return "happy"
 
     def dead_mode(self, our_animal):
-        if our_animal.pet.get_mood() == 'dead':
+        if our_animal.pet.get_mood(0) == 'dead':
             print('You had to care about me...')
             print(our_animal.pet.dead_look)
             return True
-        return False
+        return "dead"
 
     def hungry_mode(self, our_animal):
-        if our_animal.pet.get_mood() in ['hungry', 'hungry and bored']:
+        if our_animal.pet.get_mood(2) in ['hungry', ["bored", "hungry"]]:
             print("feed me please:")
             food = input()
             if food in our_animal.pet.diet:
                 our_animal.pet.feed()
 
     def bored_mode(self, our_animal):
-        if our_animal.pet.get_mood() in ['bored', 'hungry and bored']:
+        if our_animal.pet.get_mood(3) in ['bored', ["bored", "hungry"]]:
             print("teach me something please:")
             first_element = 0
             entertain = input()
